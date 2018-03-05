@@ -12,14 +12,18 @@ const methodOverride = require('method-override')
 // create and set up our express app
 const app = express()
 
+const recipesController = require('./controllers/recipes');
+
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
 // define a route
 app.get('/', (req, res) => {
-  res.send('Hello Universe!')
+  res.render('index')
 })
+
+app.use('/recipes', recipesController);
 
 // start our server
 app.listen(3000, () => console.log('This is working'))
