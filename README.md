@@ -15,7 +15,7 @@ Would be nice:
 - ability to login to account 
 - pictures attached to each recipe 
 
-Linke to wireframe: https://projects.invisionapp.com/freehand/document/dRHACpXgO
+Link to wireframe: https://projects.invisionapp.com/freehand/document/dRHACpXgO
 
 User Stories: 
 - As a User, I want to view recipes, so that I can use the application
