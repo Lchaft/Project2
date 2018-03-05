@@ -3,8 +3,8 @@ const express = require('express')
 const bcrypt = require('bcrypt-nodejs')
 const flash = require('connect-flash')
 const expressSession = require('express-session')
-// const passportLocal = require('passport-local')
-// const passport = require('passport')
+const passportLocal = require('passport-local')
+const passport = require('passport')
 const hbs = require('hbs')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
@@ -17,9 +17,9 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 
 // define a route
-// app.get('/', (req, res) => {
-//   res.render('Hello Universe!')
-// })
+app.get('/', (req, res) => {
+  res.send('Hello Universe!')
+})
 
 // start our server
 app.listen(3000, () => console.log('This is working'))
