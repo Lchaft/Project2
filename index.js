@@ -1,4 +1,3 @@
-// dependencies
 const express = require('express')
 const bcrypt = require('bcrypt-nodejs')
 const flash = require('connect-flash')
@@ -8,8 +7,8 @@ const passport = require('passport')
 const hbs = require('hbs')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+const path = require('path')
 
-// create and set up our express app
 const app = express()
 
 const recipesController = require('./controllers/recipes');
@@ -19,14 +18,12 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(express.static(path.join(__dirname, 'public')))
 
-
-// define a route
 app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.use('/recipes', recipesController);
+app.use('/recipes', recipesController)
 
-// start our server
 app.listen(3000, () => console.log('This is working'))
