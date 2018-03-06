@@ -3,6 +3,7 @@ var router = express.Router()
 var bodyParser = require('body-parser')
 var methodOverride = require('method-override')
 var passport = require('passport')
+var flash = require ('connect-flash')
 
 router.get('/', (req, res) => {
   res.render('index')
@@ -14,10 +15,10 @@ router.get('/signup', (req, res) => {
 
 router.post('/signup', (req, res) => {
   var signupStrategy = passport.authenticate('local-signup', {
-      successRedirect: '/',
-      failureRedirect: '/signup',
-      failureFlash: true
-    })
+    successRedirect: '/',
+    failureRedirect: '/signup',
+    failureFlash: true
+  })
 
   return signupStrategy(req, res)
 })
@@ -28,10 +29,10 @@ router.get('/login', (req, res) => {
 
 router.post('/login', (req, res) => {
   var loginProperty = passport.authenticate('local-login', {
-      successRedirect: '/',
-      failureRedirect: '/login',
-      failureFlash: true
-    })
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  })
 
   return loginProperty(req, res)
 })
@@ -41,12 +42,4 @@ router.get('/logout', (req, res) => {
   res.redirect('/')
 })
 
-// 
-
-module.exports = {
-    getLogin: getLogin,
-    postLogin: postLogin ,
-    getSignup: getSignup,
-    postSignup: postSignup,
-    getLogout: getLogout,
-  }
+module.exports = router

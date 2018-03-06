@@ -11,7 +11,8 @@ const path = require('path')
 
 const app = express()
 
-const recipesController = require('./controllers/recipes');
+const recipesController = require('./controllers/recipes')
+const usersController = require('./controllers/users')
 
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({extended: true}))
@@ -19,12 +20,14 @@ app.use(methodOverride('_method'))
 require('./config/passport')(passport)
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '/public')))
 
 app.get('/', (req, res) => {
   res.render('index')
 })
 
 app.use('/recipes', recipesController)
+
+app.use('/users', usersController)
 
 app.listen(3000, () => console.log('This is working'))
