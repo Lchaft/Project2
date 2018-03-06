@@ -16,6 +16,7 @@ const recipesController = require('./controllers/recipes');
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
+require('./config/passport')(passport)
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(express.static(path.join(__dirname, 'public')))
