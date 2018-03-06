@@ -17,6 +17,9 @@ const recipesController = require('./controllers/recipes');
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(methodOverride('_method'))
+app.use(passport.initialize())
+app.use(passport.session())
+
 
 // define a route
 app.get('/', (req, res) => {
