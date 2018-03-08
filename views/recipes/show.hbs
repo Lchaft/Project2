@@ -3,11 +3,8 @@
 <p>instructions: {{this.instructions}} </p>
 <p>ingredients: {{this.ingredients}} </p>
 
-{{!-- <source src="{{this.gif}}"> --}}
-
-{{!-- <video width="320" height="240" autoplay> --}}
-  <video src="{{this.gif}}" type="video/mp4">
-  {{!-- <source src="movie.ogg" type="video/ogg"> --}}
+<video controls>
+  <source src="{{this.gif}}">
 </video>
 
 <a href="/recipes/edit/{{id}}">edit</a>
