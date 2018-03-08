@@ -1,6 +1,11 @@
 h1 {
     font: 800;
-    color: blue;
+    color: rgb(38, 38, 140);
+}
+
+h2 {
+    font: 800;
+    color: rgb(38, 38, 140);
 }
 
 .laura {
@@ -8,5 +13,13 @@ h1 {
 }
 
 p {
-    color: plum;
+    color: rgb(124, 116, 162);
 }
+
+button {
+    color: darkblue;
+    font-size: 20px;
+    padding: 10px;
+    margin: 1%;
+}
+
